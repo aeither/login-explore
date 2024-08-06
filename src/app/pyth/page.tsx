@@ -13,7 +13,7 @@ import { EvmPriceServiceConnection } from "@pythnetwork/pyth-evm-js";
 import { useState } from "react";
 import { encodeFunctionData, parseEther } from "viem";
 
-export const abi = [
+const abi = [
   {
     inputs: [
       {

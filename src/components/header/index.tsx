@@ -1,6 +1,5 @@
 import { Earth } from "lucide-react";
 import Link from "next/link";
-import { IntroModalButton } from "../language/intro-modal";
 import { ModeToggle } from "./mode-toggle";
 
 const Header = () => {
@@ -16,7 +15,6 @@ const Header = () => {
 
         <div>
           <ModeToggle></ModeToggle>
-          <IntroModalButton />
         </div>
         {/* <Link href="/profile">
           <User />
