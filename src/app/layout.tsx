@@ -1,12 +1,15 @@
-import "@/styles/globals.css";
-import { Inter } from "next/font/google";
-
 import ClientOnly from "@/components/ClientOnly";
-import { Toaster } from "@/components/ui/sonner";
-import { cn } from "@/lib/utils";
-import { type Viewport } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
+import { config } from "@/config";
+import { cn } from "@/lib/utils";
+import "@/styles/globals.css";
+import { cookieToInitialState } from "@account-kit/core";
 import { Analytics } from "@vercel/analytics/react";
+import { type Viewport } from "next";
+import { Inter } from "next/font/google";
+import { headers } from "next/headers";
+import { Providers } from "./providers";
 
 export const metadata = {
   title: "superhack",
@@ -35,6 +38,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // This will allow us to persist state across page boundaries (read more here: https://accountkit.alchemy.com/react/ssr#persisting-the-account-state)
+  const initialState = cookieToInitialState(
+    config,
+    headers().get("cookie") ?? undefined,
+  );
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
@@ -50,7 +59,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ClientOnly>{children}</ClientOnly>
+          <ClientOnly>
+            <Providers initialState={initialState}>{children}</Providers>
+          </ClientOnly>
           <Toaster />
         </ThemeProvider>
         <Analytics />
