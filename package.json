@@ -21,6 +21,7 @@
     "@deepgram/sdk": "^3.3.4",
     "@google-cloud/text-to-speech": "^5.3.0",
     "@hookform/resolvers": "^3.6.0",
+    "@pythnetwork/pyth-evm-js": "^1.61.0",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-dropdown-menu": "^2.1.1",
     "@radix-ui/react-label": "^2.0.2",
@@ -58,6 +59,8 @@
     "sonner": "^1.4.41",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
+    "viem": "^2.18.8",
+    "wagmi": "^2.12.4",
     "zod": "^3.23.8",
     "zustand": "^4.5.2"
   },
